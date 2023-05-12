@@ -2,14 +2,15 @@ let holes = document.querySelectorAll('.hole');
 let dead = +document.querySelector('#dead').textContent;
 let lost = +document.querySelector('#lost').textContent;
 
-function clearStat() {
+function clearStat(text) {
+  alert(text);
   dead = 0;
   lost = 0;
   document.querySelector('#dead').textContent = 0;
   document.querySelector('#lost').textContent = 0;
 }
 
-for (hole of holes) {
+for (let hole of holes) {
   hole.onclick = () => {
     if (hole.classList.contains('hole_has-mole')) {
       dead++;
@@ -20,11 +21,9 @@ for (hole of holes) {
     }
 
     if (dead === 10) {
-      alert('Вы выиграли!');
-      clearStat();
+      clearStat('Вы выиграли!');
     } else if (lost === 5) {
-      alert('Вы проиграли!');
-      clearStat();
+      clearStat('Вы проиграли!');
     }
   };
 }
