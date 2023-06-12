@@ -43,9 +43,10 @@ document.body.addEventListener('click', (e) => {
 
 
     if (currentCartProduct) {
-     currentCartProduct.querySelector('.cart__product-count').textContent = e.target.closest('.product__quantity').querySelector('.product__quantity-value').textContent;
+      currentCartProduct.querySelector('.cart__product-count').textContent = 
+      +currentCartProduct.querySelector('.cart__product-count').textContent + +e.target.closest('.product__quantity').querySelector('.product__quantity-value').textContent;
     } else {
       createProduct();
     }
   }
-})
+});

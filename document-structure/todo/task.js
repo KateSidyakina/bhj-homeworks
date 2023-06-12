@@ -5,7 +5,7 @@ const list = document.querySelector('#tasks__list');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (!input.value) {
+  if (!input.value.trim()) {
     return;
   }
 
@@ -26,11 +26,11 @@ form.addEventListener('submit', (e) => {
   list.append(task);
 
   form.reset();
-})
+});
 
 document.body.addEventListener('click', (e) => {
   if (e.target.classList.contains('task__remove')) {
     e.preventDefault();
     e.target.closest('.task').remove();
   }
-})
+});
